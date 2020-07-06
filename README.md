@@ -2,6 +2,10 @@
 
 [Get Started with yours..](https://github.com/rohit-mehra/rohit-mehra.github.io/generate)
 
+#### Reference and docs to follow
+- [Structure](https://mmistakes.github.io/minimal-mistakes/docs/structure/)
+- [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/)
+
 <!-- # Minimal Mistakes remote theme starter
 
 Click [**Use this template**](https://github.com/mmistakes/mm-github-pages-starter/generate) button above for the quickest method of getting started with the [Minimal Mistakes Jekyll theme](https://github.com/mmistakes/minimal-mistakes).

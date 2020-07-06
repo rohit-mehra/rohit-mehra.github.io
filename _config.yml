@@ -14,6 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Rohit Mehra
+title_separator: |
+name: Rohit Mehra
 email: iirohitmehra at gmail dot com
 description: >- # this means to ignore newlines until "baseurl:"
   This is interesting
@@ -31,7 +33,7 @@ github: [metadata]
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/New_York
 
 include:
   - _pages
