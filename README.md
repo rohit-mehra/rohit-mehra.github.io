@@ -1,6 +1,6 @@
 # [The blog I want to read](https://rohit-mehra.github.io/)
 
-To get started with yours - [**Use this template..**](https://github.com/mmistakes/mm-github-pages-starter/generate)
+[Get Started with yours..](https://github.com/rohit-mehra/rohit-mehra.github.io/generate)
 
 <!-- # Minimal Mistakes remote theme starter
 
