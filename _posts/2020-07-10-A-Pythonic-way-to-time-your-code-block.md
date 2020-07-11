@@ -11,7 +11,7 @@ tags:
   - date
 ---
 
-A simple utility to time any python code block.
+A simple utility to time your python code block.
 
 #### Pre-requisites
 
@@ -24,7 +24,7 @@ A simple utility to time any python code block.
 
 ## Timer context manager
 
-Using [contextmanager decorator][cm_dec], we will define a timer context manager. Once we define this we can reuse this as required. The desired behavior is to -
+Using [@contextmanager][cm_dec] decorator, we will define a timer context manager. Once we define this we can reuse this as required. The desired behavior is to -
 1. note start time before executing the code block
 2. yield to execute the code block
 3. note the end time and print the execution time
@@ -35,11 +35,15 @@ We will define a generator-iterator to do this. There is no need to return a `va
 from contextlib import contextmanager
 import time
 
+# Simplest
 @contextmanager
 def timer(code_block_name: str) -> None:
-  start_time = time.time()
-  yield
-  print(f'[{code_block_name}] completed in {time.time() - start_time:.0f} s..')
+    start_time = time.time()
+    # yields the control to the with statement
+    yield
+    # executed after with code block execution
+    execution_time = time.time() - start_time
+    print(f"[{code_block_name}] completed in {execution_time:.0f} seconds..")
 ```
 
 #### Usage
@@ -55,8 +59,75 @@ with timer("Square root of abs col 'X'"):
     df['X_square_root'] = df['X'].apply(lambda x: np.sqrt(abs(x)))
 
 ```
-```Python
-[Square root of abs col 'X'] completed in 1 s..
+```python
+[Square root of abs col 'X'] completed in 1 seconds..
+```
+
+#### Another version
+
+Context manager yielding start time.
+
+```python
+from contextlib import contextmanager
+import time
+from datetime import datetime
+
+# Return Start Date and time
+# just to show the use of `as` assignment in the `with` statement
+@contextmanager
+def timer_v2(code_block_name: str) -> None:
+    start_time = time.time()
+    # yields the value to the with statement
+    yield datetime.now()
+    # executed after with code block execution
+    execution_time = time.time() - start_time
+    print(f"[{code_block_name}] completed in {execution_time:.0f} seconds..")
+```
+
+Using the v2 version - which yields the start time. The start time can be assigned to a variable in the with statement as followseconds..
+
+```python
+import pandas as pd
+import numpy as np
+
+df = pd.DataFrame({'X' : np.random.randint(low=-10, high=10, size=1000000),
+                   'Y' : np.random.normal(0.0, 1.0, size=1000000)})
+
+with timer_v2("Square root of abs col 'X'") as current_time:
+    print(f"Started at {current_time}")
+    df['X_square_root'] = df['X'].apply(lambda x: np.sqrt(abs(x)))
+```
+
+```bash
+Started at 2020-07-11 13:45:45.194144
+[Square root of abs col 'X'] completed in 1 seconds..
+```
+
+#### Class based implementation of timer
+
+```python
+import time
+
+class Timer:
+    def __init__(self, code_block_name):
+        # init the context manager with a name
+        self.code_block_name = code_block_name
+    def __enter__(self):
+        # executes and yields the control to the code block
+        self.start_time = time.time()
+    def __exit__(self, type, value, traceback):
+        # executed after with code block execution
+        execution_time = time.time() - self.start_time
+        print(f"[{self.code_block_name}] completed in {execution_time:.0f} seconds..")
+```
+
+```python
+with Timer("for loop 100,000,000"):
+    _ = [x for x in range(100_000_000)]
+```
+
+```python
+[for loop 100,000,000] completed in 4 seconds..
 ```
 
 [context_manager]: https://docs.python.org/3/reference/datamodel.html#with-statement-context-managers
