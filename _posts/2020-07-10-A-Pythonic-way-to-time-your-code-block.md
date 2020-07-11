@@ -84,7 +84,7 @@ def timer_v2(code_block_name: str) -> None:
     print(f"[{code_block_name}] completed in {execution_time:.0f} seconds..")
 ```
 
-Using the v2 version - which yields the start time. The start time can be assigned to a variable in the with statement as followseconds..
+Using the v2 version - which yields the start time. The start time can be assigned to a variable in the with statement as follows..
 
 ```python
 import pandas as pd
