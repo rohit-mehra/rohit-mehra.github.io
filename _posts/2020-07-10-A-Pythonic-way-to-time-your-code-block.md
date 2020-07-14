@@ -1,6 +1,7 @@
 ---
 title: "A Pythonic way to time your code block"
 date: 2020-07-10T22:03:33-0500
+classes: wide
 categories:
   - python
   - util
