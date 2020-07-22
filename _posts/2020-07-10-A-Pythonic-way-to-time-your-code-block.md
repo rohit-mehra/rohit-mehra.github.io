@@ -10,9 +10,12 @@ tags:
   - util
   - timer
   - date
+  - boondh
 ---
 
 A simple utility to time your python code block.
+
+> [Get this python package to use this utility (and others) with ease..](https://github.com/rohit-mehra/boondh)
 
 #### Pre-requisites
 

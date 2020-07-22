@@ -11,6 +11,7 @@ tags:
   - multiprocessing
   - pool
   - tqdm
+  - boondh
 ---
 
 I work on data and a lot of times I find myself wondering.. 
@@ -20,6 +21,8 @@ I work on data and a lot of times I find myself wondering..
 There are obvious solutions to accomplish this such as using [vectorization][vectorization_guide] instead of looping over rows in Pandas. [Numpy][np_basic] is a great library to accomplish optimizations when dealing with numeric data. Similarly using [vectorized string methods][vectorization_str] is more efficient when dealing with string data in pandas. All these solutions are great but they don't work every time.
 
 > Solution?
+
+> [Get this python package to use this utility (and others) with ease..](https://github.com/rohit-mehra/boondh)
 
 Keep a utility function in your code arsenal. I created a modified version of python's [`map()`][py_map] function. Using this one can apply any given function in parallel, on every element of a given iterable. That's not it. I can even see the progress using [`tqdm`][tqdm_git].
 
