@@ -5,6 +5,8 @@
 #### Reference and docs to follow
 - [Structure](https://mmistakes.github.io/minimal-mistakes/docs/structure/)
 - [Configuration](https://mmistakes.github.io/minimal-mistakes/docs/configuration/)
+- [Collections](https://jekyllrb.com/docs/collections/) - [Example](https://mmistakes.github.io/minimal-mistakes/collection-archive/)
+- [Layouts](https://mmistakes.github.io/minimal-mistakes/docs/layouts/)
 
 <!-- # Minimal Mistakes remote theme starter
 
